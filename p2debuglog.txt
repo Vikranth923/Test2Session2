@@ -1,1 +1,156 @@
 
+ 
+ gcc -g p1final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8fc: file p1final.c, line 30.
+(gdb) r
+Starting program: /home/runner/Test2Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p1final.c:30
+30  { float a,b,c,d,dist;
+(gdb) n
+31    input(&a,&b,&c,&d);
+(gdb) s
+input (x1=0x7ffe31af68a4, y1=0x7ffe31af68a8, x2=0x7ffe31af68ac, 
+    y2=0x7ffe31af68b0) at p1final.c:4
+4     printf("enter the co-ordinates of the form x1 y1 x2 y2\n");
+(gdb) n
+enter the co-ordinates of the form x1 y1 x2 y2
+5     scanf("%f %f %f %f",x1,y1,x2,y2);
+(gdb) n
+4 5 6 7 8 9 
+6   }
+(gdb) n
+main () at p1final.c:32
+32    find_distance(a,b,c,d,&dist);
+(gdb) s
+find_distance (x1=4, y1=5, x2=6, y2=7, distance=0x7ffe31af68b4) at p1final.c:22
+22    x =((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+(gdb) n
+23    *distance = my_sqrt(x);
+(gdb) s
+my_sqrt (distance=8) at p1final.c:10
+10    float a=distance/2;
+(gdb) n
+11    float a2 = distance;
+(gdb) n
+12    while(a2!=a)
+(gdb) n
+14      a2=a;
+(gdb) n
+15      a=(a+(distance/a))/2;
+(gdb) n
+12    while(a2!=a)
+(gdb) n
+14      a2=a;
+(gdb) n
+15      a=(a+(distance/a))/2;
+(gdb) n
+12    while(a2!=a)
+(gdb) n
+14      a2=a;
+(gdb) n
+15      a=(a+(distance/a))/2;
+(gdb) n
+12    while(a2!=a)
+(gdb) n
+14      a2=a;
+(gdb) n
+15      a=(a+(distance/a))/2;
+(gdb) n
+12    while(a2!=a)
+(gdb) n
+14      a2=a;
+(gdb) n
+15      a=(a+(distance/a))/2;
+ 
+ gcc -g p2final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x863: file p2final.c, line 32.
+(gdb) r
+Starting program: /home/runner/Test2Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p2final.c:32
+32  {
+(gdb) n
+34    input_triangle(&a,&b,&c,&d,&e,&f);
+(gdb) s
+input_triangle (x1=0x7fff73a75900, y1=0x7fff73a75904, x2=0x7fff73a75908, 
+    y2=0x7fff73a7590c, x3=0x7fff73a75910, y3=0x7fff73a75914) at p2final.c:4
+4     printf("enter the coordinates of the triangle in the form x1 y1 x2 y2 x3 y3\n");
+(gdb) n
+enter the coordinates of the triangle in the form x1 y1 x2 y2 x3 y3
+5     scanf("%f %f %f %f %f %f",x1,y1,x2,y2,x3,y3);
+(gdb) n
+1 2 3 4 5 6 
+6   }
+(gdb) n
+main () at p2final.c:35
+35    a = is_triangle(a,b,c,d,e,f);
+(gdb) s
+is_triangle (x1=1, y1=2, x2=3, y2=4, x3=5, y3=6) at p2final.c:10
+10    area = 0.5*(x1*(y2-y3)+x2*(y3-y1)+x3*(y1-y2));
+(gdb) n
+11    if (area == 0)
+(gdb) n
+13      return 1;
+(gdb) n
+19  }
+(gdb) n
+main () at p2final.c:36
+36    output(a,b,c,d,e,f,a);
+(gdb) s
+output (x1=1, y1=2, x2=3, y2=4, x3=5, y3=6, istriangle=1) at p2final.c:22
+22    if (istriangle == 1)
+(gdb) n
+24      printf("the given co-ordinates do not form a triangle.\n");
+(gdb) n
+the given co-ordinates do not form a triangle.
+30  }
+(gdb) n
+main () at p2final.c:37
+37  }(gdb) n
+__libc_start_main (main=0x5613e900085b <main>, argc=1, argv=0x7fff73a75a08, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7fff73a759f8) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 713] will be killed.
+
+Quit anyway? (y or n) y
